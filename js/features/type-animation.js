@@ -1,7 +1,7 @@
 const roles = [
-    "Full-Stack Developer",
-    "MERN Enthusiast",
-    "Competitive Programmer",
+    "Full Stack Developer",
+    "MERN Stack Developer",
+    "Backend Developer",
     "Frontend Developer"
 ];
 
