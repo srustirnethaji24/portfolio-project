@@ -25,7 +25,7 @@ function renderFilters(data) {
         const btn = document.createElement("button");
 
         btn.textContent = category;
-        btn.className = "px-4 py-2 bg-yellow-200 rounded hover:bg-green-400 transition";
+        btn.className = "md:px-4 md:py-2 bg-yellow-200 rounded hover:bg-green-400 transition";
 
         btn.addEventListener("click", () => {
 
