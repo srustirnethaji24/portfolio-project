@@ -1,37 +1,51 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+
   const toggleBtn = document.getElementById("theme-toggle");
   const body = document.body;
 
-  // Load saved theme
+  if (!toggleBtn) return;
+
+  // ================= THEME INIT =================
   const savedTheme = localStorage.getItem("theme");
 
-  function updateThemeButton() {
-    if (body.classList.contains("dark-mode")) {
-      toggleBtn.textContent = "☀️";
-      toggleBtn.setAttribute("aria-label", "Switch to light mode");
-    } else {
-      toggleBtn.textContent = "🌙";
-      toggleBtn.setAttribute("aria-label", "Switch to dark mode");
-    }
-  }
+  const systemPrefersDark =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  if (savedTheme === "dark") {
+  const initialTheme =
+    savedTheme || (systemPrefersDark ? "dark" : "light");
+
+  if (initialTheme === "dark") {
     body.classList.add("dark-mode");
   }
 
-  updateThemeButton();
+  // ================= UPDATE BUTTON =================
+  function updateButton() {
 
-  toggleBtn.addEventListener("click", function () {
+    const isDark = body.classList.contains("dark-mode");
+
+    toggleBtn.textContent = isDark ? "☀️" : "🌙";
+
+    toggleBtn.setAttribute(
+      "aria-label",
+      isDark ? "Switch to light mode" : "Switch to dark mode"
+    );
+
+  }
+
+  updateButton();
+
+  // ================= TOGGLE THEME =================
+  toggleBtn.addEventListener("click", () => {
+
     body.classList.toggle("dark-mode");
 
-    // Update button text and icon
-    updateThemeButton();
+    const isDark = body.classList.contains("dark-mode");
 
-    // Save theme
-    if (body.classList.contains("dark-mode")) {
-      localStorage.setItem("theme", "dark");
-    } else {
-      localStorage.setItem("theme", "light");
-    }
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+
+    updateButton();
+
   });
+
 });

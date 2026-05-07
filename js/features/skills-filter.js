@@ -1,48 +1,72 @@
-const filtersContainer = document.getElementById("skills-filters");
+document.addEventListener("DOMContentLoaded", () => {
 
-function getCategories(data) {
-    const categories = ["All"];
+  const filtersContainer = document.getElementById("skills-filters");
+
+  if (!filtersContainer || typeof skillsData === "undefined") return;
+
+  let activeCategory = "All";
+
+  // ================= GET UNIQUE CATEGORIES =================
+  function getCategories(data) {
+
+    const categories = new Set();
+    categories.add("All");
 
     data.forEach(skill => {
-        if (!categories.includes(skill.category)) {
-            categories.push(skill.category);
-        }
+      if (skill.category) {
+        categories.add(skill.category);
+      }
     });
 
-    return categories;
-}
+    return Array.from(categories);
 
-function renderFilters(data) {
+  }
 
-    if (!filtersContainer) return;
+  // ================= RENDER FILTERS =================
+  function renderFilters(data) {
 
-    filtersContainer.innerHTML = ""; // IMPORTANT FIX
+    filtersContainer.innerHTML = "";
 
     const categories = getCategories(data);
 
     categories.forEach(category => {
 
-        const btn = document.createElement("button");
+      const btn = document.createElement("button");
 
-        btn.textContent = category;
-        btn.className = "md:px-4 md:py-2 bg-yellow-200 rounded hover:bg-green-400 transition";
+      btn.textContent = category;
 
-        btn.addEventListener("click", () => {
+      btn.className = `
+        px-4 py-2 rounded-full border text-sm transition
+        ${category === activeCategory
+          ? "bg-pink-500 text-white border-pink-500"
+          : "bg-white text-gray-700 border-gray-300 hover:border-pink-400"
+        }
+      `;
 
-            // active state
-            document.querySelectorAll("#skills-filters button")
-                .forEach(b => b.classList.remove("bg-green-500"));
+      btn.addEventListener("click", () => {
 
-            btn.classList.add("bg-green-500");
+        activeCategory = category;
 
-            const filtered =
-                category === "All"
-                    ? data
-                    : data.filter(skill => skill.category === category);
+        // Re-render filters to update active state
+        renderFilters(data);
 
-            renderSkills(filtered);
-        });
+        // Filter skills
+        const filtered =
+          category === "All"
+            ? data
+            : data.filter(skill => skill.category === category);
 
-        filtersContainer.appendChild(btn);
+        renderSkills(filtered);
+
+      });
+
+      filtersContainer.appendChild(btn);
+
     });
-}
+
+  }
+
+  // Init
+  renderFilters(skillsData);
+
+});

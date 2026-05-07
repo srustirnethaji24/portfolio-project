@@ -1,59 +1,47 @@
-
-const projectsData = [
+// 
+window.projectsData = [
   {
     id: 1,
-    name: "BookMyShow",
-    category: "MERN",
+    name: "BookMyShow Clone",
+    category: "MERN Stack",
     description:
-      "Full stack movie ticket booking app with AI-based recommendations.",
-    technologies: ["ReactJS", "ExpressJS", "MongoDB"],
-    status: "Live",
-    liveDemo: "#",
-    github: "#"
+      "Full-stack movie ticket booking application with authentication and recommendation features.",
+    technologies: ["React.js", "Node.js", "Express.js", "MongoDB"]
   },
+
   {
     id: 2,
     name: "Portfolio Website",
     category: "Frontend",
     description:
-      "Responsive portfolio showcasing projects, skills, and contact info.",
-    technologies: ["HTML", "Tailwind CSS", "JavaScript"],
-    status: "Live",
-    liveDemo: "#",
-    github: "#"
+      "Responsive personal portfolio website showcasing projects, skills, and contact form integration.",
+    technologies: ["HTML5", "Tailwind CSS", "JavaScript"]
   },
+
   {
     id: 3,
     name: "Skin Cancer Detection",
     category: "AI/ML",
     description:
-      "Deep learning model using CNN + YOLOv8 for early cancer detection.",
-    technologies: ["Python", "TensorFlow", "YOLOv8", "OpenCV"],
-    status: "Demo",
-    liveDemo: "#",
-    github: "#"
+      "Deep learning-based system using CNN and YOLOv8 for early-stage skin cancer detection.",
+    technologies: ["Python", "TensorFlow", "YOLOv8", "OpenCV"]
   },
+
   {
     id: 4,
     name: "Steganography Tool",
     category: "Python",
     description:
-      "Securely hide and retrieve secret messages inside images.",
-    technologies: ["Python", "OpenCV", "NumPy", "Tkinter"],
-    status: "Demo",
-    liveDemo: "#",
-    github: "#"
+      "Secure tool to hide and extract secret messages inside images using image processing techniques.",
+    technologies: ["Python", "OpenCV", "NumPy", "Tkinter"]
   },
+
   {
     id: 5,
-    name: "Linkedin Clone",
-    category: "Node.jss",
+    name: "LinkedIn Clone (CLI App)",
+    category: "Node.js",
     description:
-      "Developed a CLI-based LinkedIn inspired application using Node.js and Express.js that simulates core networking platform features such as user profiles, post management, authentication flow, and structured backend routing.",
-    technologies: ["Exprees", "Node" ],
-    status: "Demo",
-    liveDemo: "#",
-    github: "#"
+      "Command-line LinkedIn-inspired application built with Node.js and Express.js featuring user profiles, posts, and authentication flow.",
+    technologies: ["Node.js", "Express.js"]
   }
 ];
-

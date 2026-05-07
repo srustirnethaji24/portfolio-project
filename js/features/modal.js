@@ -5,32 +5,34 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("modal-close");
   const cancelBtn = document.getElementById("form-cancel");
 
-  console.log("Modal JS loaded");
+  if (!openBtn || !modal) return;
 
-  if (!openBtn || !modal) {
-    console.error("Modal elements not found");
-    return;
-  }
+  const openModal = () => {
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden"; // prevent background scroll
+  };
+
+  const closeModal = () => {
+    modal.classList.add("hidden");
+    document.body.style.overflow = "auto";
+  };
 
   // OPEN
-  openBtn.addEventListener("click", () => {
-    modal.classList.remove("hidden");
-  });
+  openBtn.addEventListener("click", openModal);
 
-  // CLOSE (X)
-  closeBtn?.addEventListener("click", () => {
-    modal.classList.add("hidden");
-  });
+  // CLOSE buttons
+  closeBtn?.addEventListener("click", closeModal);
+  cancelBtn?.addEventListener("click", closeModal);
 
-  // CLOSE (Cancel)
-  cancelBtn?.addEventListener("click", () => {
-    modal.classList.add("hidden");
-  });
-
-  // CLOSE OUTSIDE CLICK
+  // CLOSE outside click
   modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.add("hidden");
+    if (e.target === modal) closeModal();
+  });
+
+  // ESC key support (important UX upgrade)
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
     }
   });
 

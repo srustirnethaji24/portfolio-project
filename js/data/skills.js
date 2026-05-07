@@ -2,43 +2,60 @@ const skillsData = [
   {
     id: 1,
     name: "Tailwind CSS",
-    shortLabel: "T",
+    icon: "🎨",
     category: "Frontend",
-    description: "Responsive layouts, utility-first styling, and clean UI building."
+    level: "Advanced",
+    description:
+      "Utility-first CSS framework for building modern, responsive UI quickly."
   },
+
   {
     id: 2,
     name: "JavaScript",
-    shortLabel: "J",
+    icon: "⚡",
     category: "Frontend",
-    description: "DOM manipulation, events, validation, Fetch API, and storage."
+    level: "Advanced",
+    description:
+      "Core programming language for DOM manipulation, APIs, and web interactivity."
   },
+
   {
     id: 3,
     name: "MongoDB",
-    shortLabel: "M",
+    icon: "🍃",
     category: "Backend",
-    description: "Document-based database design and backend integration."
+    level: "Intermediate",
+    description:
+      "NoSQL database used for storing flexible, document-based data."
   },
+
   {
     id: 4,
-    name: "HTML",
-    shortLabel: "H",
+    name: "HTML5",
+    icon: "🌐",
     category: "Frontend",
-    description: "HTML structures content on the web using tags and elements."
+    level: "Advanced",
+    description:
+      "Semantic structure of web pages using modern HTML standards."
   },
+
   {
     id: 5,
-    name: "NodeJS",
-    shortLabel: "N",
+    name: "Node.js",
+    icon: "🟢",
     category: "Backend",
-    description: "Runtime environment to execute JavaScript on server."
+    level: "Intermediate",
+    description:
+      "JavaScript runtime environment for building server-side applications."
   },
+
   {
     id: 6,
     name: "SQL",
-    shortLabel: "S",
+    icon: "🗄️",
     category: "Database",
-    description: "Language used to manage and query relational databases."
+    level: "Intermediate",
+    description:
+      "Structured Query Language used for relational database management."
   }
 ];

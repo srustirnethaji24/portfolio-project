@@ -1,27 +1,34 @@
 const educationsData = [
   {
-    id:1,
-    board:"VTU",
-    course:"B E in Computer Science",
-    year:"2022-26",
-    college:"CIT, Mandya",
-    percentage:"CGPA:8.0"
+    id: 1,
+    level: "Bachelor Degree",
+    board: "VTU",
+    course: "B.E in Computer Science Engineering",
+    year: "2022 - 2026",
+    college: "CIT, Mandya",
+    scoreType: "CGPA",
+    score: "8.0"
   },
+
   {
-    id:2,
-    board:"PU",
-    course:"PCMB",
-    year:"2020-22",
-    college:"SPSM, Davanagere",
-    percentage:"Percentage:70%"
+    id: 2,
+    level: "Pre-University",
+    board: "Karnataka PU Board",
+    course: "PCMB",
+    year: "2020 - 2022",
+    college: "SPSM, Davanagere",
+    scoreType: "Percentage",
+    score: "70%"
   },
+
   {
-    id:3,
-    board:"KSEAB",
-    course:"SSLC",
-    year:"2019-20",
-    college:"Akshara Residential School",
-    percentage:"Percentage:78%"
+    id: 3,
+    level: "Secondary School",
+    board: "KSEAB",
+    course: "SSLC",
+    year: "2019 - 2020",
+    college: "Akshara Residential School",
+    scoreType: "Percentage",
+    score: "78%"
   }
 ];
-

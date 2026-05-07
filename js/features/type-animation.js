@@ -1,43 +1,53 @@
-const roles = [
+document.addEventListener("DOMContentLoaded", () => {
+
+  const element = document.getElementById("typing-text");
+
+  if (!element) return;
+
+  const roles = [
     "Full Stack Developer",
     "MERN Stack Developer",
     "Backend Developer",
     "Frontend Developer"
-];
+  ];
 
-let index = 0;
-let charIndex = 0;
-let isDeleting = false;
+  let roleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
 
-function typeEffect() {
-    const element = document.getElementById("typing-text");
-    if (!element) return;
+  const typingSpeed = 100;
+  const deletingSpeed = 50;
+  const delayBetweenWords = 1200;
 
-    let currentWord = roles[index];
+  function type() {
 
-    if (!isDeleting) {
-        charIndex++;
+    const currentRole = roles[roleIndex];
+
+    if (isDeleting) {
+      charIndex--;
     } else {
-        charIndex--;
+      charIndex++;
     }
 
-    element.textContent = currentWord.slice(0, charIndex);
+    element.textContent = currentRole.substring(0, charIndex);
 
-    // Typing complete
-    if (!isDeleting && charIndex === currentWord.length) {
-        isDeleting = true;
-        setTimeout(typeEffect, 1000);
-        return;
+    let delay = isDeleting ? deletingSpeed : typingSpeed;
+
+    // Word complete → pause before deleting
+    if (!isDeleting && charIndex === currentRole.length) {
+      delay = delayBetweenWords;
+      isDeleting = true;
     }
 
-    // Deleting complete
-    if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        index = (index + 1) % roles.length;
+    // Word deleted → move to next word
+    else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
     }
 
-    setTimeout(typeEffect, isDeleting ? 50 : 100);
-}
+    setTimeout(type, delay);
+  }
 
-// Start animation after page loads
-document.addEventListener("DOMContentLoaded", typeEffect) ;
+  type();
+
+});
