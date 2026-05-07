@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateThemeButton() {
     if (body.classList.contains("dark-mode")) {
-      toggleBtn.textContent = "☀️ Dark";
+      toggleBtn.textContent = "☀️";
       toggleBtn.setAttribute("aria-label", "Switch to light mode");
     } else {
-      toggleBtn.textContent = "🌙 Light";
+      toggleBtn.textContent = "🌙";
       toggleBtn.setAttribute("aria-label", "Switch to dark mode");
     }
   }
